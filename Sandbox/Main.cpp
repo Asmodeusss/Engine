@@ -1,10 +1,21 @@
+#include "Engine.h"
+#include <iostream>
 
-namespace Engine
+class Game : public Engine::Application
 {
-	__declspec(dllimport) void Print();
-}
+public:
+	Game()
+	{
+		std::cout << "Game is running\n";
+	}
 
-void main()
+	~Game()
+	{
+
+	}
+};
+
+Engine::Application* Engine::CreateApplication()
 {
-	Engine::Print();
+	return new Game();
 }
