@@ -1,4 +1,11 @@
+#include "Enginepch.h"
+
 #include "Application.h"
+
+#include "Engine/Events/ApplicationEvent.h"
+#include "Engine/Log.h"
+
+
 namespace Engine
 {
 	Application::Application()
@@ -13,5 +20,7 @@ namespace Engine
 
 	void Application::Run()
 	{	
+		WindowResizeEvent e(1280, 720);
+		CORE_INFO(e);
 	}
 }

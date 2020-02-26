@@ -1,3 +1,5 @@
+#include "Enginepch.h"
+
 #include "Log.h"
 
 #include "Core.h"
