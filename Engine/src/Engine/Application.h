@@ -8,11 +8,11 @@ namespace Engine
 	{
 	public:
 		Application();
-		~Application();
+		virtual ~Application();
 
-		virtual void Run();
+		void Run();
 	};
 
-	
+	//defined in client
 	Application* CreateApplication();
 }

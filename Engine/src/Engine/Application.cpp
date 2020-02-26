@@ -12,10 +12,6 @@ namespace Engine
 	}
 
 	void Application::Run()
-	{
-		while (true);
+	{	
 	}
-
-	//must be defined in client;
-	Application* CreateApplication();
 }

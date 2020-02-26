@@ -2,3 +2,6 @@
 Debug
 bin-int
 bin
+
+#files
+*.user
