@@ -11,6 +11,11 @@ workspace "Apotheosis"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+IncludeDir = {}
+IncludeDir["GLFW"] = "Engine/vendor/glfw/include"
+
+include "Engine/vendor/glfw"
+
 project "Engine"
 	location "Engine"
 	kind "SharedLib"
@@ -32,7 +37,14 @@ project "Engine"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
