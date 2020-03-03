@@ -1,12 +1,29 @@
 #include "Engine.h"
 #include <iostream>
 
+
+class ExampleLayer : public Engine::Layer
+{
+public:
+	ExampleLayer() : Layer("Example") {}
+
+	void OnUpdate() override
+	{
+		APP_INFO("ExampleLayer::Update");
+	}
+
+	void OnEvent(Engine::Event& event) override
+	{
+		APP_INFO("{0}", event);
+	}
+};
+
 class Game : public Engine::Application
 {
 public:
 	Game()
 	{
-		std::cout << "Game is running\n";
+		PushLayer(new ExampleLayer());
 	}
 
 	~Game()

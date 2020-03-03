@@ -12,9 +12,13 @@ workspace "Apotheosis"
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
 IncludeDir = {}
-IncludeDir["GLFW"] = "Engine/vendor/glfw/include"
+IncludeDir["GLFW"] = "Engine/vendor/GLFW/include"
+IncludeDir["GLAD"] = "Engine/vendor/GLAD/include"
+IncludeDir["ImGui"] = "Engine/vendor/imgui"
 
-include "Engine/vendor/glfw"
+include "Engine/vendor/GLFW"
+include "Engine/vendor/GLAD"
+include "Engine/vendor/imgui"
 
 project "Engine"
 	location "Engine"
@@ -38,13 +42,17 @@ project "Engine"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.GLAD}",
+		"%{IncludeDir.ImGui}"
 	}
 
 	links
 	{
 		"GLFW",
-		"opengl32.lib"
+		"GLAD",
+		"ImGui",
+		"opengl32.lib",
 	}
 
 	filter "system:windows"
@@ -55,7 +63,8 @@ project "Engine"
 		defines
 		{
 			"PLATFORM_WINDOWS",
-			"BUILD_DLL"
+			"BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
@@ -65,14 +74,17 @@ project "Engine"
 
 	filter "configurations:Debug"
 		defines "ENGINE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ENGINE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ENGINE_DIST"
+		buildoptions "/MD"
 		optimize "On"
 
 project "Sandbox"
@@ -113,12 +125,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "ENGINE_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "ENGINE_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "ENGINE_DIST"
+		buildoptions "/MD"
 		optimize "On"
