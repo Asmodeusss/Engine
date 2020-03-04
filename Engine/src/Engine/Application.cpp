@@ -4,12 +4,20 @@
 
 #include "Engine/Log.h"
 
+#include "Engine/Input.h"
+
 #define BIND_EVENT_FUNCTION(x) std::bind(&Application::x, this, std::placeholders::_1)
 
 namespace Engine
 {
+
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		CORE_ASSERT(!s_Instance, "Application already exists!");
+		s_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FUNCTION(OnEvent));
 	}
@@ -43,6 +51,9 @@ namespace Engine
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 		}
+
+		auto [x, y] = Input::GetMousePos();
+		CORE_ERROR("{0}, {1}", x, y);
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
@@ -54,10 +65,12 @@ namespace Engine
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 }
