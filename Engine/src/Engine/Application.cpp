@@ -30,7 +30,9 @@ namespace Engine
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FUNCTION(OnWindowClose));
+		dispatcher.Dispatch<WindowCloseEvent>(BIND_EVENT_FN(Application::OnWindowClose));
+		dispatcher.Dispatch<KeyPressedEvent>(BIND_EVENT_FN(Application::OnKeyboardPressed));
+		dispatcher.Dispatch<KeyReleasedEvent>(BIND_EVENT_FN(Application::OnKeyboardReleased));
 
 		CORE_INFO("{0}", e);
 
@@ -53,12 +55,25 @@ namespace Engine
 		}
 
 		auto [x, y] = Input::GetMousePos();
-		CORE_ERROR("{0}, {1}", x, y);
+		//CORE_ERROR("{0}, {1}", x, y);
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
 	{
 		m_Running = false;
+		return true;
+	}
+
+	bool Application::OnKeyboardPressed(KeyPressedEvent& e)
+	{
+		Input::HandleKeyboardPressed(e);
+		CORE_INFO("Key pressed {0}", e.GetKeyCode());
+		return true;
+	}
+
+	bool Application::OnKeyboardReleased(KeyReleasedEvent& e)
+	{
+		Input::HandleKeyboardReleased(e);
 		return true;
 	}
 

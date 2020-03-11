@@ -4,6 +4,7 @@
 #include "Core.h"
 #include "Events/Event.h"
 #include "Engine/Events/ApplicationEvent.h"
+#include "Engine/Events/KeyEvent.h"
 #include "Engine/LayerStack.h"
 #include "Window.h"
 
@@ -28,6 +29,8 @@ namespace Engine
 
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
+		bool OnKeyboardPressed(KeyPressedEvent& e);
+		bool OnKeyboardReleased(KeyReleasedEvent& e);
 
 		std::unique_ptr<Window> m_Window;
 		bool m_Running = true;

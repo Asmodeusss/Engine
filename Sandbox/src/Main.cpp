@@ -9,12 +9,12 @@ public:
 
 	void OnUpdate() override
 	{
-		APP_INFO("ExampleLayer::Update");
+		//APP_INFO("ExampleLayer::Update");
 	}
 
 	void OnEvent(Engine::Event& event) override
 	{
-		APP_INFO("{0}", event);
+		//APP_INFO("{0}", event);
 	}
 };
 
