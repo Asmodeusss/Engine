@@ -20,8 +20,6 @@ namespace Engine
 		virtual bool HandleKeyboardReleasedImpl(KeyReleasedEvent&) override;
 		virtual bool HandleKeyboardTypedImpl(KeyTypedEvent&) override;
 
-		virtual KeyCode GetKeyCode(int) override;
-
 	private:
 	};
 }

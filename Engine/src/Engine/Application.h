@@ -6,6 +6,7 @@
 #include "Engine/Events/ApplicationEvent.h"
 #include "Engine/Events/KeyEvent.h"
 #include "Engine/LayerStack.h"
+#include "Engine/ImGui/ImGuiLayer.h"
 #include "Window.h"
 
 namespace Engine
@@ -33,8 +34,11 @@ namespace Engine
 		bool OnKeyboardReleased(KeyReleasedEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
+		bool m_Minimized = false;
 		LayerStack m_LayerStack;
+		float m_LastFrameTime = 0.0f;
 
 		static Application* s_Instance;
 	};

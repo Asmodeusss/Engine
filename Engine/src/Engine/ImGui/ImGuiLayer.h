@@ -11,24 +11,21 @@ namespace Engine
 	class ENGINE_API ImGuiLayer : public Layer
 	{
 	public:
+
 		ImGuiLayer();
 		~ImGuiLayer();
 
-		void OnAttach();
-		void OnDetach();
-		void OnUpdate();
-		void OnEvent(Event& event);
+		virtual void OnAttach() override;
+		virtual void OnDetach() override;
+		virtual void OnImGuiRender() override;
+
+
+
+		void Begin();
+		void End();
+		virtual void OnEvent(Event& event) override;
 
 	private:
 		float m_Time = 0.0f;
-
-		bool OnMouseReleasedEvent(MouseButtonReleasedEvent&);
-		bool OnMousePressedEvent(MouseButtonPressedEvent&);
-		bool OnMouseMovedEvent(MouseMovedEvent&);
-		bool OnMouseScrolledEvent(MouseScrolledEvent&);
-		bool OnKeyPressedEvent(KeyPressedEvent&);
-		bool OnKeyReleasedEvent(KeyReleasedEvent&);
-		bool OnKeyTypedEvent(KeyTypedEvent&);
-		bool OnWindowResizedEvent(WindowResizeEvent&);
 	};
 }
