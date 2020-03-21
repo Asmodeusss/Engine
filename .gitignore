@@ -1,7 +1,15 @@
 .vs
 Debug
-bin-int
-bin
+bin-int/
+**/bin/
+!vendor/bin/premake
 
-#files
-*.user
+# Engine files
+*.log
+
+# visual studio files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user

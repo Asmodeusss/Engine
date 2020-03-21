@@ -2,7 +2,7 @@
 
 #include "Enginepch.h"
 
-#include "Engine/Core.h"
+#include "Engine/Core/Core.h"
 #include "Engine/Events/Event.h"
 
 namespace Engine
@@ -39,6 +39,6 @@ namespace Engine
 
 		virtual void* GetNativeWindow() const = 0;
 
-		static Window* Create(const WindowProps& props = WindowProps());
+		static std::unique_ptr<Window> Create(const WindowProps& props = WindowProps());
 	};
 }

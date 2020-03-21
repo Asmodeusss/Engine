@@ -1,5 +1,5 @@
 #include "Enginepch.h"
-#include "WindowsWindow.h"
+#include "Platform/Windows/WindowsWindow.h"
 #include "Engine/Log.h"
 
 #include "Engine/Events/MouseEvent.h"
@@ -15,12 +15,6 @@ namespace Engine
 	static void GLFWErrorCallback(int error, const char* desc)
 	{
 		CORE_ERROR("GLFW Error ({0}): {1}", error, desc);
-	}
-
-	Window* Window::Create(const WindowProps& props)
-	{
-		return new WindowsWindow(props);
-
 	}
 
 	WindowsWindow::WindowsWindow(const WindowProps& props)
@@ -59,6 +53,7 @@ namespace Engine
 
 		///////////////
 		//Set CALLBACKS
+		/*
 		glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
@@ -147,6 +142,7 @@ namespace Engine
 				KeyTypedEvent event(keycode);
 				data.EventCallback(event);
 		});
+		*/
 
 	}
 

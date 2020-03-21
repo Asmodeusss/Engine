@@ -7,6 +7,9 @@
     <Filter Include="src\Engine">
       <UniqueIdentifier>{12A1320E-FE58-745B-6760-4DB753370F4C}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Engine\Core">
+      <UniqueIdentifier>{AA407579-16CC-E23D-1FDD-65328BE73E3E}</UniqueIdentifier>
+    </Filter>
     <Filter Include="src\Engine\Events">
       <UniqueIdentifier>{B624EAB0-223B-E846-6BB2-7368D707B9CE}</UniqueIdentifier>
     </Filter>
@@ -45,11 +48,20 @@
     <ClInclude Include="src\Engine.h">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Application.h">
-      <Filter>src\Engine</Filter>
+    <ClInclude Include="src\Engine\Core\Application.h">
+      <Filter>src\Engine\Core</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Core.h">
-      <Filter>src\Engine</Filter>
+    <ClInclude Include="src\Engine\Core\Core.h">
+      <Filter>src\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Core\Layer.h">
+      <Filter>src\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Core\LayerStack.h">
+      <Filter>src\Engine\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Engine\Core\Window.h">
+      <Filter>src\Engine\Core</Filter>
     </ClInclude>
     <ClInclude Include="src\Engine\EntryPoint.h">
       <Filter>src\Engine</Filter>
@@ -75,12 +87,6 @@
     <ClInclude Include="src\Engine\KeyCodes.h">
       <Filter>src\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="src\Engine\Layer.h">
-      <Filter>src\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Engine\LayerStack.h">
-      <Filter>src\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="src\Engine\Log.h">
       <Filter>src\Engine</Filter>
     </ClInclude>
@@ -92,9 +98,6 @@
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h">
       <Filter>src\Platform\Windows</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Window.h">
-      <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="vendor\glm\glm\common.hpp">
       <Filter>vendor\glm\glm</Filter>
@@ -1238,20 +1241,23 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\Engine\Application.cpp">
-      <Filter>src\Engine</Filter>
+    <ClCompile Include="src\Engine\Core\Application.cpp">
+      <Filter>src\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Core\Layer.cpp">
+      <Filter>src\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Core\LayerStack.cpp">
+      <Filter>src\Engine\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Engine\Core\Window.cpp">
+      <Filter>src\Engine\Core</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\ImGui\ImGuiBuild.cpp">
       <Filter>src\Engine\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\ImGui\ImGuiLayer.cpp">
       <Filter>src\Engine\ImGui</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\Layer.cpp">
-      <Filter>src\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Engine\LayerStack.cpp">
-      <Filter>src\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\Engine\Log.cpp">
       <Filter>src\Engine</Filter>

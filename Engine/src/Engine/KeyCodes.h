@@ -136,7 +136,7 @@ namespace Engine
 		RightAlt            = 346,
 		RightSuper          = 347,
 		Menu                = 348
-	} Key;
+	};
 
 	inline std::ostream& operator<<(std::ostream& os, KeyCode keyCode)
 	{
